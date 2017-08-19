@@ -51,20 +51,4 @@ public class MSQLConnect {
 	    }
 	}
 
-	// public void getData() {
-	// try {
-	// String query = "select * from usuarios";
-	// rs = st.executeQuery(query);
-	// System.out.println("Resultados");
-	// while (rs.next()) {
-	// String id = rs.getString("id");
-	// String name = rs.getString("nombre");
-	// String apellido = rs.getString("apellido");
-	// System.out.println(id + " " + name + " " + apellido);
-	// }
-	//
-	// } catch (Exception e) {
-	// System.out.println(e);
-	// }
-	// }
 }

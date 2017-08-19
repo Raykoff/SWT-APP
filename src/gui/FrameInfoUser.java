@@ -14,22 +14,22 @@ public class FrameInfoUser {
 	private Usuario user;
 	private Shell parent;
 	
-	public void showFila(Usuario user) {
+	public void showFila(Usuario user, Shell parent) {
 		this.user = user;
 		
-		show();
+		show(parent);
 	}
 	
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public void show() {
+	public void show(Shell parent) {
 
 
 		
-		Shell shell = new Shell(Display.getCurrent());
+		Shell shell = new Shell(parent);
 
-
+		parent.setEnabled(false);
 
 		shell.setSize(343, 228);
 		shell.setText("Usuario");

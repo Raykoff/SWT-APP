@@ -17,7 +17,6 @@ public class FrameFormUser {
     private Label lblNewLabel;
     private Text text;
     Shell parent;
-    Display parentd;
 
     // public FrameFormUser(Usuario user) {
     // this.user = user;
@@ -25,10 +24,12 @@ public class FrameFormUser {
     //
 
     /**
-     * @wbp.parser.entryPoint
      */
-    public void show() {
-        Shell shell = new Shell(Display.getCurrent());
+    public void show(Shell parent) {
+        Shell shell = new Shell(parent);
+
+        parent.setEnabled(false);
+
         shell.setText("Add user");
         shell.setSize(292, 192);
         shell.setLayout(new GridLayout(2, false));
@@ -109,6 +110,8 @@ public class FrameFormUser {
 
 
         shell.open();
+
+
 
 
         while (!shell.isDisposed()) {

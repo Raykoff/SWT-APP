@@ -18,6 +18,7 @@ public class MainFrame {
 	 * @wbp.parser.entryPoint
 	 */
 	public void show() {
+
 		Display display = new Display();
 		Shell shlMiPrograma = new Shell(display);
 		shlMiPrograma.setText("Mi Programa");
