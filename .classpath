@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="images"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.swt"/>
+	<classpathentry kind="lib" path="C:/Users/Raykov/workspace-spring/swt-4.7-win32-win32-x86_64/swt.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Raykov/workspace-spring/Pantalla2/mysql-connector-java-5.1.43/mysql-connector-java-5.1.43-bin.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
