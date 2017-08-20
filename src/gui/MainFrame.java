@@ -25,6 +25,8 @@ public class MainFrame {
 		shlMiPrograma.setImage(SWTResourceManager.getImage("C:\\Users\\Raykov\\workspace-spring\\Pantalla2\\images\\icon-shell.png"));
 
 		shlMiPrograma.setLayout(new GridLayout(1, false));
+		shlMiPrograma.setSize(800,500);
+		shlMiPrograma.setMinimumSize(800,500);
 
 		parent = shlMiPrograma.getShell();
 

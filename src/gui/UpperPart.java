@@ -1,5 +1,6 @@
 package gui;
 
+import com.sun.deploy.uitoolkit.impl.fx.ui.FXMessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
@@ -13,6 +14,7 @@ import org.eclipse.swt.widgets.*;
 import java.util.List;
 
 import db.DBController;
+import sun.plugin2.message.Message;
 
 public class UpperPart {
 
@@ -41,16 +43,20 @@ public class UpperPart {
 
         String[] titles = {"id", "Nombre", "Apellido", "Edad"};
 
-        for (int loopIndex = 0; loopIndex < titles.length; loopIndex++) {
-            TableColumn column = new TableColumn(table, SWT.NONE);
-            column.setText(titles[loopIndex]);
-        }
+        TableColumn column1 = new TableColumn(table, SWT.NONE);
+        column1.setText(titles[0]);
+        column1.setWidth(50);
+        TableColumn column2 = new TableColumn(table, SWT.NONE);
+        column2.setText(titles[1]);
+        column2.setWidth(200);
+        TableColumn column3 = new TableColumn(table, SWT.NONE);
+        column3.setText(titles[2]);
+        column3.setWidth(200);
+        TableColumn column4 = new TableColumn(table, SWT.NONE);
+        column4.setText(titles[3]);
+        column4.setWidth(304);
 
         updateTable();
-
-        for (int loopIndex = 0; loopIndex < titles.length; loopIndex++) {
-            table.getColumn(loopIndex).pack();
-        }
 
         add = new Button(parent, SWT.PUSH);
         add.setText("Add user");
@@ -62,7 +68,6 @@ public class UpperPart {
                 MainFrame mn = new MainFrame();
                 fmu.show(mn.getShellParent());
                 mn.getShellParent().setEnabled(true);
-
 
 
                 Usuario user = fmu.getUsuario();
@@ -108,9 +113,22 @@ public class UpperPart {
             public void handleEvent(Event event) {
                 TableItem[] itemsSelected = table.getSelection();
                 if (itemsSelected.length != 0) {
-                    DBController db = new DBController();
-                    db.deleteUser((Usuario) itemsSelected[0].getData());
-                    updateTable();
+                    MessageBox dialog = new MessageBox(parent1, SWT.ICON_WARNING | SWT.OK | SWT.CANCEL);
+                    dialog.setText("Elimiar usuario");
+                    dialog.setMessage("Quiere eliminar el usuario: " + itemsSelected[0].getText(1) + "?");
+                    int res = dialog.open();
+                    if (res == SWT.OK) {
+                        try {
+                            DBController db = new DBController();
+                            db.deleteUser((Usuario) itemsSelected[0].getData());
+                            updateTable();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+
+
                 }
 
             }
@@ -129,7 +147,7 @@ public class UpperPart {
             @Override
             public void mouseDown(MouseEvent mouseEvent) {
 
-                if(table.getSelection().length == 0){
+                if (table.getSelection().length == 0) {
                     System.out.println("deselect");
                 }
             }
