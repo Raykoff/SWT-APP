@@ -56,6 +56,7 @@ public class UpperPart {
         column4.setText(titles[3]);
         column4.setWidth(304);
 
+
         updateTable();
 
         add = new Button(parent, SWT.PUSH);
